@@ -14,6 +14,7 @@ import com.example.API.model.ContactModel;
 import com.example.API.repo.ContactDetailsRepo;
 import com.example.API.service.ContactDetailsService;
 
+@Service
 public class ContactDetailsServiceImpl implements ContactDetailsService {
 
 	@Autowired

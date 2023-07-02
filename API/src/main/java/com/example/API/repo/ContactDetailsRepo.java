@@ -15,6 +15,10 @@ public interface ContactDetailsRepo extends JpaRepository<ContactModel, Long> {
 	
 	@Query(value="Select * from Contact_details",nativeQuery=true)
 	List<LinkedCaseInsensitiveMap>  findAllContacts();
+
+	@Query(value = "SELECT * FROM Contact_details where first_name=? || email=? || last_name=?;", nativeQuery = true)
+	List<LinkedCaseInsensitiveMap> searchContacts(String firstName, String email, String lastName);
+
 	
 
 	

@@ -88,4 +88,20 @@ public class ContactController {
 
 	}
 
+	@PostMapping("/searchContact")
+	public Map searchContacts(ContactModel contactModel) {
+		
+		Map response = new HashMap();
+		try {
+			response = contactService.searchContacts(contactModel);
+		} catch (Exception e) {
+			logger.error("Exception occured while updating contacts..");
+			response.put("status", "exception");
+			response.put("msg", e.getMessage());
+		}
+
+		return response;
+
+	}
+
 }

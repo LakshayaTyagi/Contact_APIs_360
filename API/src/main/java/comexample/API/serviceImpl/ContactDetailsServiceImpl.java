@@ -1,3 +1,4 @@
+
 package comexample.API.serviceImpl;
 
 import java.util.HashMap;
@@ -104,6 +105,23 @@ public class ContactDetailsServiceImpl implements ContactDetailsService {
 			logger.error(e.getMessage());
 			response.put("status", "exception");
 			response.put("msg", e.getMessage());
+		}
+		return response;
+	}
+
+	@Override
+	public Map searchContacts(ContactModel contactModel) {
+		Map response = new HashMap();
+		try {
+			List<LinkedCaseInsensitiveMap> list = contactRepo.searchContacts(contactModel.getFirstName(), contactModel.getEmail(), contactModel.getLastName());
+			response.put("status", HttpStatus.OK);
+			response.put("ContactList", list);
+		}
+		catch (Exception e) {
+			logger.error(e.getMessage());
+			response.put("status", "exception");
+			response.put("msg", e.getMessage());
+			
 		}
 		return response;
 	}

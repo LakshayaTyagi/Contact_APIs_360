@@ -13,6 +13,8 @@ public interface ContactDetailsService {
 	 public Map getAllContactDetails();
 	 
 	 public Map updateContactDetails(ContactModel contactModel);
+
+	 public Map searchContacts(ContactModel contactModel);
 	 
 
 }
